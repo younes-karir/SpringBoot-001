@@ -1,7 +1,12 @@
 package com.example.app001.model;
 
+
+import com.fasterxml.jackson.annotation.JsonTypeId;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 public class CloudVendor {
-    private String VendorId;
+
+    private String  VendorId;
     private String VendorName;
     private String VendorAddress;
     private String VendorPhoneNumber;
