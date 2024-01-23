@@ -60,6 +60,7 @@ public class CloudAPIService {
                     data.remove(item);
                     return "item removed";
                 }
+
         }
         return "item couldn't be found";
     }
