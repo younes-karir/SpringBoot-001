@@ -29,14 +29,14 @@ public class CloudAPIService {
 
 
     @PostMapping
-    public String postCloudVendorDetails (@RequestBody CloudVendor item){
+    public String postCloudVendor (@RequestBody CloudVendor item){
         if(data.add(item))
             return "added";
         else return "Error";
     }
 
     @PutMapping
-    public String putCloudVendorDetails (@RequestBody CloudVendor CloudVendor){
+    public String putCloudVendor (@RequestBody CloudVendor CloudVendor){
         for (CloudVendor item:data) {
             if(item.getVendorId().equals(CloudVendor.getVendorId()))
             {
@@ -46,6 +46,20 @@ public class CloudAPIService {
                 return "modified";
             }
 
+        }
+        return "item couldn't be found";
+    }
+
+
+
+    @DeleteMapping("{VendorId}")
+    public String deleteCloudVendor(@PathVariable  String VendorId){
+        for (CloudVendor item: data) {
+                if(item.getVendorId().equals(VendorId))
+                {
+                    data.remove(item);
+                    return "item removed";
+                }
         }
         return "item couldn't be found";
     }
